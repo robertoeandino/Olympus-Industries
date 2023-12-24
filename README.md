@@ -14,3 +14,4 @@ This repository contains information and tutorials for working with the CAN bus 
 - [3.3KW Charger Overview](https://www.longrunobc.com/obc-q2-3-3kw-dc48-440v-10-42a-broad-voltage-with-can-stackable-smart-charger-product/)
 - [3.3KW Charger Datasheet (PDF)](https://www.longrunobc.com/uploads/DCNE-Q2-3.3-6.6kw-charger-manual0510.pdf)
 
+![Protocol](~/Olympus-Industries/img/chart.png)
