@@ -65,6 +65,8 @@ The ID typically represents a node within your vehicle.
 
 
 
+### Extra Resources 
+[SparkFun CAN-Bus Arduino Library](https://github.com/sparkfun/SparkFun_CAN-Bus_Arduino_Library)
 
 
 
