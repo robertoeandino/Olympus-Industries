@@ -16,25 +16,55 @@ This repository contains information and tutorials for working with the CAN bus 
 
 ![Protocol](img/chart.png)
 
-When the data is retrieved it will dump it into the following HEX format.
+## CAN Bus Data Interpretation
+
+When data is retrieved, it follows this HEX format:
+
 ID, BIT1, BIT2, BIT3, BIT4, BIT5, BIT6, BIT7, BIT8
-The ID usually represents a Node within your vehicle.
-Let's make a simple example. (The below is made up and not real, just an example)
-Air Conditioning Node ID= 0x402
-TURN AIRCON OFF = 13
-TURN AIRCON ON = 14
-SET AIRCON BLOWER TO LOW = 7C
-SET AIRCON BLOWER TO MEDIUM 8C
-SET AIRCON BLOWER TO HIGH 9C
-So if we turn on the Aircon and set it on medium the message will look like this
-0x402, 13, 8C
-the same goes for other nodes, example Central Locking
-Central Locking ID= 0x503
-LOCK all doors = 14
-So if you press the button to lock all doors the message will look like this
-0x502, 14
-You can try the following messages. Load the send examples from the Arduino examples menu and change were relevant.
-Engage Rear Locker.: CAN.sendMsgBuf(0x2B0, 0, 4 ,stmp);
-Left Blinker On: CAN.sendMsgBuf(0x2A8, 0, 6 ,stmp);
-Right Blinker On: CAN.sendMsgBuf(0x2A8, 0, 6 ,stmp);
-ESP On/OFF: CAN.sendMsgBuf(0x2B0, 0, 4 ,stmp);
+
+
+The ID typically represents a node within your vehicle. 
+
+### Example: Air Conditioning Control
+- **Node ID**: `0x402`
+  - Turn OFF: `13`
+  - Turn ON: `14`
+  - Blower Low: `7C`
+  - Blower Medium: `8C`
+  - Blower High: `9C`
+
+*Example*: Turning on Aircon to medium setting: 0x402, 13, 8C
+
+
+### Other Nodes
+- **Central Locking Node ID**: `0x503`
+  - Lock All Doors: `14`
+
+*Example*: Locking all doors: 0x502, 14
+
+
+### Arduino Command Examples
+- Engage Rear Locker: `CAN.sendMsgBuf(0x2B0, 0, 4, stmp);`
+- Left Blinker On: `CAN.sendMsgBuf(0x2A8, 0, 6, stmp);`
+- Right Blinker On: `CAN.sendMsgBuf(0x2A8, 0, 6, stmp);`
+- ESP On/OFF: `CAN.sendMsgBuf(0x2B0, 0, 4, stmp);`
+
+## Controlling the Charger Over CAN
+
+- **Baud rate**: 250K
+- **Charger Receives CAN ID**: `0x1806E5F4`
+- **Charger Emits CAN ID**: `0x18FF50E5`
+
+*Commands*:
+- Start Charging: `CAN.sendMsgBuf(0x1806E5F4, 0, 0, stmp);`
+- Alternative: `CAN.sendMsgBuf(0x1806E5F4, 0, 5, stmp);`
+
+**Note**: Try reverse engineering the charger's CAN messages for effective control.
+
+**Connection Tip**: Ensure a common ground between Arduino and the vehicle. Use OBD2 port pin 5 for signal ground or a chassis ground.
+
+
+
+
+
+
