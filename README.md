@@ -70,9 +70,13 @@ The ID typically represents a node within your vehicle.
 - [CANbus Academy](https://learn.canbusacademy.com/)
 - [Ultimate Guide](img/CANguide.pdf)
 - [CANFD](https://www.csselectronics.com/pages/can-fd-flexible-data-rate-intro)
+- [ScooterReference](https://maker.pro/custom/projects/electric-scooter-controller)
 
 
 ![drawing](img/IMG_8936.jpeg) 
+
+
+
 
 
 
